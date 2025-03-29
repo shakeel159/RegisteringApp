@@ -1,25 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RegisteringApp.Data;
 using RegisteringApp.Models;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace RegisteringApp.Controllers
 {
     public class ClientsController : Controller
     {
-        public IActionResult AddClient()
+        private readonly RegistryContext _context;
+        public ClientsController(RegistryContext context)
         {
-            var client = new Client()
-            {
-                Id = 1,
-                FirstName = "Test",
-                LastName = "Testing",
-                Email = "Test@gmail.com"
-            };
-            return View(client);
+            _context = context;
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Index()
         {
-            return Content("id= " + id);
+            var client = await _context.Clients.ToListAsync();
+            return View(client);
+        }
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }
