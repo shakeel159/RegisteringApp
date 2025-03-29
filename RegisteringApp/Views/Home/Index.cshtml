@@ -1,8 +1,34 @@
-﻿@{
+﻿@model RegisteringApp.Models.Client
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        <h1>Welcome to Registering Project Site</h1>
+        <p>Goal of this website is to showcase my ability to not only create ASP.Net Websites but demonstrate storing data into a server by allowing user to add and remove clients at anytime.</p>
+    </div>
+    <div>
+        <div>
+            <form asp-action="AddClient" asp-controller="Clients" method="get">
+                <button type="submit" class="btn btn-primary">Add Client</button>
+            </form>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success">Remove Client</button>
+        </div>
+
+        <div>
+            @if (Model == null || Model.Id == 0)
+            {
+                <h1>No data in registry</h1>
+            }
+            else
+            {
+                <h1>Current User ID: @Model.Id</h1>
+                <h2>Name: @Model.FirstName @Model.LastName</h2>
+                <p>Email: @Model.Email</p>
+            }
+        </div>
+    </div>
 </div>
