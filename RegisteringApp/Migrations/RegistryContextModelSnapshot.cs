@@ -41,71 +41,9 @@ namespace RegisteringApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PublicID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "YourEmail@gmail.com",
-                            FirstName = "FirstName",
-                            LastName = "LastName",
-                            PublicID = 2
-                        });
-                });
-
-            modelBuilder.Entity("RegisteringApp.Models.ID", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ItemId")
-                        .IsUnique()
-                        .HasFilter("[ItemId] IS NOT NULL");
-
-                    b.ToTable("_ID");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 2,
-                            ClientId = 1,
-                            LastName = "LastName"
-                        });
-                });
-
-            modelBuilder.Entity("RegisteringApp.Models.ID", b =>
-                {
-                    b.HasOne("RegisteringApp.Models.Client", "client")
-                        .WithOne("_ID")
-                        .HasForeignKey("RegisteringApp.Models.ID", "ItemId");
-
-                    b.Navigation("client");
-                });
-
-            modelBuilder.Entity("RegisteringApp.Models.Client", b =>
-                {
-                    b.Navigation("_ID");
                 });
 #pragma warning restore 612, 618
         }
