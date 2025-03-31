@@ -1,21 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RegisteringApp.Models;
+using RegisteringApp.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Linq;
+
 
 namespace RegisteringApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly RegistryContext _context;
+        public HomeController(ILogger<HomeController> logger, RegistryContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
-        public IActionResult Index()
+        
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var clients = await _context.Clients.Include(c => c._ID).ToListAsync();
+            return View(clients);
         }
 
         public IActionResult Privacy()

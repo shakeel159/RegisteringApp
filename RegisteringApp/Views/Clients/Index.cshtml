@@ -19,14 +19,14 @@
             @foreach(var client in Model)
             {
                 <tr>
-                    <td>@client.Id</td>
+                    <td>@client._ID?.Id</td>
                     <td>@client.FirstName</td>
                     <td>@client.LastName</td>
                     <td>@client.Email</td>
-@*                     <td>
+                    <td>
                         <a asp-action="Edit" asp-route-id="@client.Id">Edit</a>
                         <a asp-action="Delete" asp-route-id="@client.Id">Delete</a>
-                    </td> *@
+                    </td> 
                 </tr>
             }
         </tbody>
