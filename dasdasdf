@@ -1,0 +1,39 @@
+[33mcommit 5988fe1c255af54948f85a6204deab2c762478e0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Mon Mar 31 18:57:32 2025 -0500
+
+    Revert "finished CRUD implementaion"
+    
+    This reverts commit b6599e8140355ea328fbda03f57082567036aa23.
+
+[33mcommit 3bb9613297332bfd7c03aa4fcd157899c548e917[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Mon Mar 31 18:46:21 2025 -0500
+
+    reverting hosting attempt
+
+[33mcommit b6599e8140355ea328fbda03f57082567036aa23[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Sun Mar 30 20:10:21 2025 -0500
+
+    finished CRUD implementaion
+
+[33mcommit 12932d9a29d569d83059d717c8a7a3dd41604e87[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Sat Mar 29 16:43:38 2025 -0500
+
+    middle of implementing CRUD
+
+[33mcommit f6c5aa18980bd2b538f668a3971224048cf451ac[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Sat Mar 29 16:11:52 2025 -0500
+
+    Established Basic Project
+    
+    Added MVC and linked SQL server for data migration
+
+[33mcommit 09215db388f064b539162f2a7e06bcd5aabcb24d[m
+Author: shakeel159 <jazibshaq@gmail.com>
+Date:   Sat Mar 29 11:25:08 2025 -0500
+
+    Initial commit

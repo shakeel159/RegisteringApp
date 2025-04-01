@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RegisteringApp.Data;
 using RegisteringApp.Models;
 
 namespace RegisteringApp.Controllers
@@ -8,14 +10,16 @@ namespace RegisteringApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly RegistryContext _context;
+        public HomeController(ILogger<HomeController> logger, RegistryContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var clients = await _context.Clients.Include(c => c._ID).ToListAsync();
+            return View(clients);
         }
 
         public IActionResult Privacy()
