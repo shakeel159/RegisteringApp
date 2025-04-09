@@ -1,7 +1,10 @@
-﻿namespace RegisteringApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RegisteringApp.Models
 {
     public class Client
     {
+        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
@@ -11,4 +14,5 @@
 
         public ID? _ID { get; set; }
     }
+
 }
